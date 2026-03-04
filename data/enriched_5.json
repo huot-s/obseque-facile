@@ -1,0 +1,127 @@
+[
+  {
+    "source": {
+      "raison_sociale": "POMPES FUNEBRES - MARBRERIE COLLIN",
+      "adresse": "7 rue de la Gare",
+      "complement_adresse": "",
+      "ville": "NONANCOURT",
+      "code_postal": "27320",
+      "courriel": "contact@marbreriecollin.fr",
+      "telephone": "02 32 58 01 50",
+      "mobile": "",
+      "prestations": "Le transport des corps avant et après mise en bière, L'organisation des obsèques, Les soins de conservation, La fourniture des housses, des cercueils et de leurs accessoires intérieurs et extérieurs ainsi que des urnes cinéraires, Alinéa supprimé, La gestion et l'utilisation des chambres funéraires, La fourniture des corbillards et des voitures de deuil, La fourniture de personnel et des objets et prestations nécessaires aux obsèques, inhumations, exhumations et crémations, à l'exception des plaques funéraires, emblèmes religieux, fleurs, travaux divers d'imprimerie et de la marbrerie funéraire, La gestion d'un crématorium"
+    },
+    "google_match": {
+      "place_id": "ChIJp-ZDJ-hZ4UcRBO9w7UCAjFo",
+      "google_name": "Pompes Funèbres Marbrerie COLLIN",
+      "google_address": "7 Rue de la Gare, 27320 Nonancourt, France",
+      "rating": 4.1,
+      "user_ratings_total": 9,
+      "website": "https://www.marbreriecollin.com/",
+      "google_maps_url": "https://maps.google.com/?cid=6524730976502869764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "phone": "02 32 58 01 50",
+      "lat": 48.773284399999994,
+      "lng": 1.1955848999999998
+    }
+  },
+  {
+    "source": {
+      "raison_sociale": "SARL CHABUEL",
+      "adresse": "9, rue du Moulin",
+      "complement_adresse": "",
+      "ville": "BOURBON L’ARCHAMBAULT",
+      "code_postal": "03160",
+      "courriel": "jm.chabuel@orange.fr",
+      "telephone": "0470671166",
+      "mobile": "",
+      "prestations": "Le transport des corps avant et après mise en bière, L'organisation des obsèques, La fourniture des housses, des cercueils et de leurs accessoires intérieurs et extérieurs ainsi que des urnes cinéraires, La fourniture des corbillards et des voitures de deuil, La fourniture de personnel et des objets et prestations nécessaires aux obsèques, inhumations, exhumations et crémations, à l'exception des plaques funéraires, emblèmes religieux, fleurs, travaux divers d'imprimerie et de la marbrerie funéraire"
+    },
+    "google_match": {
+      "place_id": "ChIJpc258Pnu8EcR1qJnua7oJUk",
+      "google_name": "Chabuel Sarl",
+      "google_address": "9 Rue du Moulin, 03160 Bourbon-l'Archambault, France",
+      "rating": 5,
+      "user_ratings_total": 1,
+      "website": null,
+      "google_maps_url": "https://maps.google.com/?cid=5270874776039563990&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "phone": "09 67 29 01 74",
+      "lat": 46.5867572,
+      "lng": 3.0570917
+    }
+  },
+  {
+    "source": {
+      "raison_sociale": "SOCIETE NOUVELLE DE CREMATION",
+      "adresse": "18 bis rue du Repos",
+      "complement_adresse": "",
+      "ville": "YZEURE",
+      "code_postal": "03400",
+      "courriel": "yzeure@snc-cremation.fr",
+      "telephone": "0470490500",
+      "mobile": "",
+      "prestations": "La gestion d'un crématorium"
+    },
+    "google_match": {
+      "place_id": "ChIJzetoXP4d8UcRLcSDVBSCzmE",
+      "google_name": "Crématorium d'Yzeure",
+      "google_address": "18 Rue du Repos, 03400 Yzeure, France",
+      "rating": 4.6,
+      "user_ratings_total": 8,
+      "website": "https://snc-cremation.fr/crematoriums/crematorium-de-yzeure",
+      "google_maps_url": "https://maps.google.com/?cid=7047713490710283309&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "phone": "04 70 49 05 00",
+      "lat": 46.5696387,
+      "lng": 3.3614517999999998
+    }
+  },
+  {
+    "source": {
+      "raison_sociale": "ATELIER LAFAY",
+      "adresse": "07 rue du 12 juin 1944",
+      "complement_adresse": "",
+      "ville": "VONNAS",
+      "code_postal": "01540",
+      "courriel": "atelier.lafay01@gmail.com",
+      "telephone": "0474500238",
+      "mobile": "",
+      "prestations": "La fourniture de personnel et des objets et prestations nécessaires aux obsèques, inhumations, exhumations et crémations, à l'exception des plaques funéraires, emblèmes religieux, fleurs, travaux divers d'imprimerie et de la marbrerie funéraire"
+    },
+    "google_match": {
+      "place_id": "ChIJLYvKPABd80cRydnBAn_YObk",
+      "google_name": "Atelier Lafay",
+      "google_address": "7 Rue du 12 Juin 1944, 01540 Vonnas, France",
+      "rating": 5,
+      "user_ratings_total": 1,
+      "website": "http://marbrerielafay.fr/",
+      "google_maps_url": "https://maps.google.com/?cid=13346937010707880393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "phone": "04 74 50 02 38",
+      "lat": 46.216669499999995,
+      "lng": 4.9933084999999995
+    }
+  },
+  {
+    "source": {
+      "raison_sociale": "Marbrerie Perdrix",
+      "adresse": "6 rue de l'Abbaye",
+      "complement_adresse": "",
+      "ville": "Cormeilles",
+      "code_postal": "27260",
+      "courriel": "contact@marbrerieperdrix.fr",
+      "telephone": "02 32 57 80 21",
+      "mobile": "",
+      "prestations": "La fourniture de personnel et des objets et prestations nécessaires aux obsèques, inhumations, exhumations et crémations, à l'exception des plaques funéraires, emblèmes religieux, fleurs, travaux divers d'imprimerie et de la marbrerie funéraire"
+    },
+    "google_match": {
+      "place_id": "ChIJJ8-bLky24UcRXW1QCG85rEw",
+      "google_name": "Marbrerie Perdrix",
+      "google_address": "6 Rue de l'Abbaye, 27260 Cormeilles, France",
+      "rating": 5,
+      "user_ratings_total": 1,
+      "website": "https://marbrerieperdrix.fr/",
+      "google_maps_url": "https://maps.google.com/?cid=5524853991920397661&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "phone": "02 32 57 80 21",
+      "lat": 49.247600999999996,
+      "lng": 0.377092
+    }
+  }
+]
