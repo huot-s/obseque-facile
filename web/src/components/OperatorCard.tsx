@@ -10,7 +10,6 @@ interface OperatorCardProps {
 export default function OperatorCard({ operator }: OperatorCardProps) {
   const displayName = operator.google_name || operator.raison_sociale || DEFAULT_OPERATOR_NAME;
   const displayAddress = operator.google_address ?? `${operator.adresse}, ${operator.code_postal} ${operator.ville}`;
-  const phone = operator.google_phone ?? operator.telephone;
 
   return (
     <div className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow">
@@ -35,15 +34,7 @@ export default function OperatorCard({ operator }: OperatorCardProps) {
             </div>
           )}
         </div>
-        <div className="flex flex-col items-end gap-2 shrink-0">
-          {phone && (
-            <a
-              href={`tel:${phone.replace(/\s/g, "")}`}
-              className="text-sm font-medium text-stone-700 hover:text-stone-900"
-            >
-              {phone}
-            </a>
-          )}
+        <div className="shrink-0">
           <Link
             href={`/pompes/${operator.slug}`}
             className="rounded-md bg-stone-800 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 transition-colors"

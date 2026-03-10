@@ -36,7 +36,6 @@ export default async function OperatorDetailPage({ params }: PageProps) {
   const displayAddress =
     operator.google_address ??
     `${operator.adresse}, ${operator.code_postal} ${operator.ville}`;
-  const phone = operator.google_phone ?? operator.telephone;
   const pricing = getPricingForPostalCode(operator.code_postal);
 
   const mapOperators =
@@ -65,7 +64,6 @@ export default async function OperatorDetailPage({ params }: PageProps) {
       postalCode: operator.code_postal,
       addressCountry: "FR",
     },
-    ...(phone && { telephone: phone }),
     ...(operator.website && { url: operator.website }),
     ...(operator.rating && {
       aggregateRating: {
@@ -103,16 +101,8 @@ export default async function OperatorDetailPage({ params }: PageProps) {
             />
           </div>
 
-          {/* Contact */}
+          {/* Links */}
           <div className="mt-6 flex flex-wrap gap-3">
-            {phone && (
-              <a
-                href={`tel:${phone.replace(/\s/g, "")}`}
-                className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50"
-              >
-                Appeler : {phone}
-              </a>
-            )}
             {operator.website && (
               <a
                 href={operator.website}
@@ -185,17 +175,6 @@ export default async function OperatorDetailPage({ params }: PageProps) {
             cremation={pricing.cremation}
           />
 
-          {operator.courriel && (
-            <div className="rounded-lg border border-stone-200 bg-white p-5">
-              <h3 className="text-sm font-semibold text-stone-700">Contact</h3>
-              <p className="mt-2 text-sm text-stone-600">{operator.courriel}</p>
-              {operator.mobile && (
-                <p className="mt-1 text-sm text-stone-600">
-                  Mobile : {operator.mobile}
-                </p>
-              )}
-            </div>
-          )}
         </div>
       </div>
     </>
