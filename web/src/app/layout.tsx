@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={`${inter.className} bg-stone-50 text-stone-900 antialiased`}>
+      <body className={`${inter.className} flex min-h-screen flex-col bg-stone-50 text-stone-900 antialiased`}>
         <header className="border-b border-stone-200 bg-white">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
             <Link href="/" className="text-xl font-bold text-stone-800">
@@ -42,7 +42,7 @@ export default function RootLayout({
           </div>
         </header>
 
-        <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
+        <main className="mx-auto max-w-6xl flex-1 px-4 py-8">{children}</main>
 
         <footer className="border-t border-stone-200 bg-white">
           <div className="mx-auto max-w-6xl px-4 py-8">
