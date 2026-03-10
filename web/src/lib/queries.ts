@@ -1,5 +1,7 @@
 import { supabase } from "./supabase";
 
+export const DEFAULT_OPERATOR_NAME = "Pompes Funèbres";
+
 export interface Operator {
   id: number;
   raison_sociale: string;

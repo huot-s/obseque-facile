@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { searchOperators } from "@/lib/queries";
+import { searchOperators, DEFAULT_OPERATOR_NAME } from "@/lib/queries";
 import SearchBar from "@/components/SearchBar";
 import OperatorCard from "@/components/OperatorCard";
 import Pagination from "@/components/Pagination";
@@ -33,7 +33,7 @@ export default async function RecherchePage({ searchParams }: PageProps) {
     .map((op) => ({
       id: op.id,
       slug: op.slug,
-      name: op.google_name ?? op.raison_sociale,
+      name: op.google_name || op.raison_sociale || DEFAULT_OPERATOR_NAME,
       lat: op.lat!,
       lng: op.lng!,
       rating: op.rating,

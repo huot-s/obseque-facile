@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getOperatorBySlug } from "@/lib/queries";
+import { getOperatorBySlug, DEFAULT_OPERATOR_NAME } from "@/lib/queries";
 import { getPricingForPostalCode } from "@/lib/pricing";
 import { getServiceLabel } from "@/lib/services";
 import RatingStars from "@/components/RatingStars";
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const operator = await getOperatorBySlug(slug);
   if (!operator) return { title: "Opérateur non trouvé" };
 
-  const name = operator.google_name ?? operator.raison_sociale;
+  const name = operator.google_name || operator.raison_sociale || DEFAULT_OPERATOR_NAME;
   return {
     title: `${name} — Pompes funèbres ${operator.ville}`,
     description: `${name} à ${operator.ville} (${operator.code_postal}). Avis clients, services funéraires et demande de devis gratuit.`,
@@ -32,7 +32,7 @@ export default async function OperatorDetailPage({ params }: PageProps) {
   const operator = await getOperatorBySlug(slug);
   if (!operator) notFound();
 
-  const displayName = operator.google_name ?? operator.raison_sociale;
+  const displayName = operator.google_name || operator.raison_sociale || DEFAULT_OPERATOR_NAME;
   const displayAddress =
     operator.google_address ??
     `${operator.adresse}, ${operator.code_postal} ${operator.ville}`;

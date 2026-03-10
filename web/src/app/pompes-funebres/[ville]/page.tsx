@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getOperatorsByVille } from "@/lib/queries";
+import { getOperatorsByVille, DEFAULT_OPERATOR_NAME } from "@/lib/queries";
 import { getPricingForPostalCode } from "@/lib/pricing";
 import OperatorCard from "@/components/OperatorCard";
 import PricingCard from "@/components/PricingCard";
@@ -49,7 +49,7 @@ export default async function VillePage({ params }: PageProps) {
     .map((op) => ({
       id: op.id,
       slug: op.slug,
-      name: op.google_name ?? op.raison_sociale,
+      name: op.google_name || op.raison_sociale || DEFAULT_OPERATOR_NAME,
       lat: op.lat!,
       lng: op.lng!,
       rating: op.rating,

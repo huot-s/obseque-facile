@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Operator } from "@/lib/queries";
+import { type Operator, DEFAULT_OPERATOR_NAME } from "@/lib/queries";
 import RatingStars from "./RatingStars";
 import ServiceBadges from "./ServiceBadges";
 
@@ -8,7 +8,7 @@ interface OperatorCardProps {
 }
 
 export default function OperatorCard({ operator }: OperatorCardProps) {
-  const displayName = operator.google_name ?? operator.raison_sociale;
+  const displayName = operator.google_name || operator.raison_sociale || DEFAULT_OPERATOR_NAME;
   const displayAddress = operator.google_address ?? `${operator.adresse}, ${operator.code_postal} ${operator.ville}`;
   const phone = operator.google_phone ?? operator.telephone;
 
