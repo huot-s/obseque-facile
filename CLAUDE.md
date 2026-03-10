@@ -11,35 +11,6 @@ Build a searchable online directory of funeral operators in France, aiming to be
 - **Data scripts:** Python (uv) for enrichment and import
 - **Hosting target:** Hetzner VPS + Coolify
 
-## Project Structure
-```
-obseque/
-├── web/                         # Next.js app
-│   └── src/
-│       ├── app/
-│       │   ├── page.tsx                    # Landing page (SSG)
-│       │   ├── recherche/page.tsx          # Search results (SSR)
-│       │   ├── pompes/[slug]/page.tsx      # Operator detail (ISR, JSON-LD)
-│       │   ├── pompes-funebres/[ville]/    # City SEO pages (ISR)
-│       │   ├── departement/[code]/         # Département pages (ISR)
-│       │   ├── prix-obseques/              # Pricing info (SSG)
-│       │   ├── blog/ + blog/[slug]/        # Blog index + MDX articles
-│       │   ├── api/search/route.ts         # Search API
-│       │   ├── api/devis/route.ts          # Devis submission
-│       │   └── sitemap.ts                  # Dynamic sitemap
-│       ├── components/                     # SearchBar, OperatorCard, Map, DevisForm, etc.
-│       ├── lib/                            # supabase.ts, queries.ts, pricing.ts, services.ts, blog.ts
-│       ├── content/blog/                   # MDX articles
-│       └── data/prix_obseques_region.json  # Regional pricing data
-├── scripts/
-│   ├── schema.sql              # Supabase schema (PostGIS, FTS, RPC functions)
-│   └── import_data.py          # CSV + enriched JSON → Supabase
-├── data/
-│   ├── liste-des-operateurs-funeraires-habilites-08-01-2026.csv
-│   ├── enriched_600.json       # 600 operators enriched via Google Places API
-│   └── prix_obseques_region.json
-└── enrich_test.py              # Google Places API enrichment script
-```
 
 ## Data Source
 - **Primary dataset:** `data/liste-des-operateurs-funeraires-habilites-08-01-2026.csv` from data.gouv.fr
@@ -51,17 +22,6 @@ obseque/
 - Some postal codes are incomplete (e.g. `3000` instead of `03000`) — padded to 5 digits in import
 - Prestations field is long text — parsed into 8 service categories via substring matching
 
-## Service Categories
-| Slug | Label | Count |
-|------|-------|-------|
-| fourniture-personnel | Fourniture de personnel et objets funéraires | ~8,219 |
-| organisation-obseques | Organisation des obsèques | ~7,472 |
-| housses-cercueils-urnes | Housses, cercueils et urnes | ~7,436 |
-| transport-corps | Transport des corps | ~7,256 |
-| corbillards | Corbillards et voitures de deuil | ~6,968 |
-| soins-conservation | Soins de conservation | ~5,102 |
-| chambres-funeraires | Chambres funéraires | ~3,934 |
-| crematorium | Crématorium | ~800 |
 
 ## Google Places API Enrichment
 - Uses **Places API v1** (new): single POST to `places.googleapis.com/v1/places:searchText`
