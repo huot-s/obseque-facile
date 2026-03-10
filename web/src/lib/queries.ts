@@ -34,6 +34,8 @@ export interface Operator {
 export interface SearchParams {
   query?: string;
   departement?: string;
+  codePostal?: string;
+  minRating?: number;
   services?: string[];
   page?: number;
   perPage?: number;
@@ -78,7 +80,7 @@ async function attachServices(operators: Operator[]): Promise<Operator[]> {
 }
 
 export async function searchOperators(params: SearchParams): Promise<SearchResult> {
-  const { query, departement, services, page = 1, perPage = 20 } = params;
+  const { query, departement, codePostal, minRating, services, page = 1, perPage = 20 } = params;
   const limit = Math.min(perPage, 20);
   const offset = (page - 1) * limit;
 
@@ -104,13 +106,45 @@ export async function searchOperators(params: SearchParams): Promise<SearchResul
     queryBuilder = queryBuilder.eq("departement", departement);
   }
 
+  if (codePostal) {
+    queryBuilder = queryBuilder.eq("code_postal", codePostal);
+  }
+
+  if (minRating) {
+    queryBuilder = queryBuilder.gte("rating", minRating);
+  }
+
   // Order: enriched first (with ratings), then by rating desc
   queryBuilder = queryBuilder
     .order("is_enriched", { ascending: false })
     .order("rating", { ascending: false, nullsFirst: false })
-    .order("raison_sociale", { ascending: true })
-    .range(offset, offset + limit - 1);
+    .order("raison_sociale", { ascending: true });
 
+  // When filtering by services (post-query), fetch all matching rows then paginate manually
+  if (services && services.length > 0) {
+    const { data, error } = await queryBuilder;
+
+    if (error) {
+      console.error("Search error:", error);
+      return { operators: [], total: 0, page, totalPages: 0 };
+    }
+
+    let operators = (data ?? []).map((op) => ({ ...op, services: [] as string[] }));
+    operators = await attachServices(operators);
+    operators = operators.filter((op) =>
+      services.every((s) => op.services.includes(s))
+    );
+
+    const total = operators.length;
+    return {
+      operators: operators.slice(offset, offset + limit),
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
+    };
+  }
+
+  queryBuilder = queryBuilder.range(offset, offset + limit - 1);
   const { data, count, error } = await queryBuilder;
 
   if (error) {
@@ -119,16 +153,7 @@ export async function searchOperators(params: SearchParams): Promise<SearchResul
   }
 
   let operators = (data ?? []).map((op) => ({ ...op, services: [] as string[] }));
-
-  // Filter by services if needed (post-query for simplicity)
-  if (services && services.length > 0) {
-    operators = await attachServices(operators);
-    operators = operators.filter((op) =>
-      services.every((s) => op.services.includes(s))
-    );
-  } else {
-    operators = await attachServices(operators);
-  }
+  operators = await attachServices(operators);
 
   const total = count ?? 0;
   return {
