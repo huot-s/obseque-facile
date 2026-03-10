@@ -22,7 +22,7 @@ export default function HomePage() {
       <section className="w-full py-12">
         <div className="grid gap-6 sm:grid-cols-3">
           <div className="rounded-lg border border-stone-200 bg-white p-6 text-center">
-            <p className="text-3xl font-bold text-stone-800">9 400+</p>
+            <p className="text-3xl font-bold text-stone-800">9 000+</p>
             <p className="mt-1 text-sm text-stone-600">Opérateurs référencés</p>
           </div>
           <div className="rounded-lg border border-stone-200 bg-white p-6 text-center">
