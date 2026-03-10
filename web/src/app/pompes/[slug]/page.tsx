@@ -89,92 +89,89 @@ export default async function OperatorDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_350px]">
-        <div>
-          <h1 className="text-3xl font-bold text-stone-900">{displayName}</h1>
-          <p className="mt-2 text-stone-600">{displayAddress}</p>
+      <div className="mx-auto max-w-4xl min-w-4xl">
+        <h1 className="text-3xl font-bold text-stone-900">{displayName}</h1>
+        <p className="mt-2 text-stone-600">{displayAddress}</p>
 
-          <div className="mt-3">
-            <RatingStars
-              rating={operator.rating}
-              count={operator.user_ratings_total}
-            />
-          </div>
-
-          {/* Links */}
-          <div className="mt-6 flex flex-wrap gap-3">
-            {operator.website && (
-              <a
-                href={operator.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50"
-              >
-                Site web
-              </a>
-            )}
-            {operator.google_maps_url && (
-              <a
-                href={operator.google_maps_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50"
-              >
-                Voir sur Google Maps
-              </a>
-            )}
-          </div>
-
-          {/* Services */}
-          {operator.services.length > 0 && (
-            <div className="mt-8">
-              <h2 className="text-lg font-semibold text-stone-900">
-                Services proposés
-              </h2>
-              <ul className="mt-3 space-y-2">
-                {operator.services.map((slug) => (
-                  <li
-                    key={slug}
-                    className="flex items-center gap-2 text-sm text-stone-700"
-                  >
-                    <span className="text-green-600">&#10003;</span>
-                    {getServiceLabel(slug)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Map */}
-          {mapOperators.length > 0 && (
-            <div className="mt-8">
-              <h2 className="text-lg font-semibold text-stone-900">
-                Localisation
-              </h2>
-              <div className="mt-3">
-                <Map operators={mapOperators} className="h-[300px]" />
-              </div>
-            </div>
-          )}
-
-          {/* Devis form */}
-          <div className="mt-8 rounded-lg border border-stone-200 bg-white p-6">
-            <h2 className="mb-4 text-lg font-semibold text-stone-900">
-              Demander un devis gratuit
-            </h2>
-            <DevisForm operatorId={operator.id} operatorName={displayName} />
-          </div>
+        <div className="mt-3">
+          <RatingStars
+            rating={operator.rating}
+            count={operator.user_ratings_total}
+          />
         </div>
 
-        {/* Sidebar */}
-        <div className="space-y-6">
+        {/* Links */}
+        <div className="mt-6 flex flex-wrap gap-3">
+          {operator.website && (
+            <a
+              href={operator.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50"
+            >
+              Site web
+            </a>
+          )}
+          {operator.google_maps_url && (
+            <a
+              href={operator.google_maps_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50"
+            >
+              Voir sur Google Maps
+            </a>
+          )}
+        </div>
+
+        {/* Services */}
+        {operator.services.length > 0 && (
+          <div className="mt-8">
+            <h2 className="text-lg font-semibold text-stone-900">
+              Services proposés
+            </h2>
+            <ul className="mt-3 space-y-2">
+              {operator.services.map((slug) => (
+                <li
+                  key={slug}
+                  className="flex items-center gap-2 text-sm text-stone-700"
+                >
+                  <span className="text-green-600">&#10003;</span>
+                  {getServiceLabel(slug)}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Map */}
+        {mapOperators.length > 0 && (
+          <div className="mt-8">
+            <h2 className="text-lg font-semibold text-stone-900">
+              Localisation
+            </h2>
+            <div className="mt-3">
+              <Map operators={mapOperators} className="h-[300px]" />
+            </div>
+          </div>
+        )}
+
+        {/* Devis form */}
+        <div className="mt-8 rounded-lg border border-stone-200 bg-white p-6">
+          <h2 className="mb-4 text-lg font-semibold text-stone-900">
+            Demander un devis gratuit
+          </h2>
+          <DevisForm operatorId={operator.id} operatorName={displayName} />
+        </div>
+
+        {/* Pricing */}
+        <div className="mt-8">
           <PricingCard
             region={pricing.region}
             average={pricing.average}
             inhumation={pricing.inhumation}
             cremation={pricing.cremation}
           />
-
         </div>
       </div>
     </>
