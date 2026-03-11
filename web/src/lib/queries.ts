@@ -59,18 +59,24 @@ async function attachServices(operators: Operator[]): Promise<Operator[]> {
   if (operators.length === 0) return operators;
 
   const ids = operators.map((op) => op.id);
-  const { data: links } = await supabase
-    .from("operator_services")
-    .select("operator_id, service_categories(slug)")
-    .in("operator_id", ids);
-
   const serviceMap = new Map<number, string[]>();
-  for (const link of links ?? []) {
-    const slug = (link.service_categories as unknown as { slug: string })?.slug;
-    if (!slug) continue;
-    const existing = serviceMap.get(link.operator_id) ?? [];
-    existing.push(slug);
-    serviceMap.set(link.operator_id, existing);
+
+  // Batch IDs to avoid PostgREST URL length limits
+  const BATCH_SIZE = 300;
+  for (let i = 0; i < ids.length; i += BATCH_SIZE) {
+    const batch = ids.slice(i, i + BATCH_SIZE);
+    const { data: links } = await supabase
+      .from("operator_services")
+      .select("operator_id, service_categories(slug)")
+      .in("operator_id", batch);
+
+    for (const link of links ?? []) {
+      const slug = (link.service_categories as unknown as { slug: string })?.slug;
+      if (!slug) continue;
+      const existing = serviceMap.get(link.operator_id) ?? [];
+      existing.push(slug);
+      serviceMap.set(link.operator_id, existing);
+    }
   }
 
   return operators.map((op) => ({
@@ -120,7 +126,8 @@ export async function searchOperators(params: SearchParams): Promise<SearchResul
     .order("rating", { ascending: false, nullsFirst: false })
     .order("raison_sociale", { ascending: true });
 
-  // When filtering by services (post-query), fetch all matching rows then paginate manually
+  // When filtering by services, fetch all matching operators then filter
+  // post-query (service filtering requires the junction table).
   if (services && services.length > 0) {
     const { data, error } = await queryBuilder;
 
