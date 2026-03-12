@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${name} — Pompes funèbres ${operator.ville}`,
     description: `${name} à ${operator.ville} (${operator.code_postal}). Avis clients, services funéraires et demande de devis gratuit.`,
+    alternates: { canonical: `/pompes/${slug}` },
   };
 }
 

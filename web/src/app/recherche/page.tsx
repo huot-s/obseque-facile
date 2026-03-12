@@ -25,6 +25,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     description: q
       ? `Trouvez et comparez les pompes funèbres à ${q}. Avis, services et devis gratuit.`
       : "Recherchez des pompes funèbres partout en France. Comparez les avis et demandez un devis gratuit.",
+    alternates: { canonical: "/recherche" },
   };
 }
 

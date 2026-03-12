@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Prix des obsèques en France — Coûts moyens par région",
   description:
     "Combien coûtent les obsèques en France ? Prix moyens par région pour l'inhumation et la crémation. Données 2024.",
+  alternates: { canonical: "/prix-obseques" },
 };
 
 export default function PrixObsequesPage() {

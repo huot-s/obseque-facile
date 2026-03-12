@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Pompes funèbres ${villeName} — Comparer les opérateurs funéraires`,
     description: `${operators.length} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit.`,
+    alternates: { canonical: `/pompes-funebres/${ville}` },
   };
 }
 

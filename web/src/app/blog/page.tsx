@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Guides obsèques — Conseils et informations pratiques",
   description:
     "Guides pratiques sur les obsèques : démarches, droits des familles, coûts et choix funéraires.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

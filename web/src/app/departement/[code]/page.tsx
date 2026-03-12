@@ -11,6 +11,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Pompes funèbres département ${code}`,
     description: `Trouvez des pompes funèbres dans le département ${code}. Liste des villes avec opérateurs funéraires.`,
+    alternates: { canonical: `/departement/${code}` },
   };
 }
 
