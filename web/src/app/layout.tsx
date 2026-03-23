@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "fr_FR",
+  },
 };
 
 export default function RootLayout({

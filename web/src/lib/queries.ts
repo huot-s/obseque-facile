@@ -225,6 +225,44 @@ export async function getOperatorsByDepartement(
   return Array.from(cityMap.values()).sort((a, b) => b.count - a.count);
 }
 
+export async function getAllVilleSlugs(): Promise<string[]> {
+  const { data } = await supabase
+    .from("operators")
+    .select("ville_slug");
+
+  if (!data) return [];
+  return [...new Set(data.map((r) => r.ville_slug).filter(Boolean))];
+}
+
+export async function getPopularCities(
+  limit: number = 30
+): Promise<{ ville: string; ville_slug: string; count: number }[]> {
+  const { data } = await supabase
+    .from("operators")
+    .select("ville, ville_slug");
+
+  if (!data) return [];
+
+  const cityMap = new Map<string, { ville: string; ville_slug: string; count: number }>();
+  for (const row of data) {
+    if (!row.ville_slug) continue;
+    const existing = cityMap.get(row.ville_slug);
+    if (existing) {
+      existing.count++;
+    } else {
+      cityMap.set(row.ville_slug, {
+        ville: row.ville,
+        ville_slug: row.ville_slug,
+        count: 1,
+      });
+    }
+  }
+
+  return Array.from(cityMap.values())
+    .sort((a, b) => b.count - a.count)
+    .slice(0, limit);
+}
+
 export async function getNearbyOperators(
   lat: number,
   lng: number,

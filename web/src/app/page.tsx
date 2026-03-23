@@ -1,6 +1,11 @@
+import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
+import { getPopularCities } from "@/lib/queries";
 
-export default function HomePage() {
+export const revalidate = 86400; // revalidate daily
+
+export default async function HomePage() {
+  const popularCities = await getPopularCities(30);
   return (
     <div className="flex flex-col items-center">
       <section className="w-full max-w-2xl py-16 text-center">
@@ -61,6 +66,25 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {popularCities.length > 0 && (
+        <section className="w-full py-8">
+          <h2 className="text-2xl font-bold text-stone-900">
+            Pompes funèbres par ville
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {popularCities.map((city) => (
+              <Link
+                key={city.ville_slug}
+                href={`/pompes-funebres/${city.ville_slug}`}
+                className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 hover:bg-stone-100 transition-colors"
+              >
+                {city.ville} ({city.count})
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

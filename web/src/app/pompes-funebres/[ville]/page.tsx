@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { getOperatorsByVille, DEFAULT_OPERATOR_NAME } from "@/lib/queries";
+import { getOperatorsByVille, getAllVilleSlugs, DEFAULT_OPERATOR_NAME } from "@/lib/queries";
 import { getPricingForPostalCode } from "@/lib/pricing";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import OperatorCard from "@/components/OperatorCard";
 import PricingCard from "@/components/PricingCard";
 
@@ -10,6 +11,11 @@ interface PageProps {
   params: Promise<{ ville: string }>;
 }
 
+export async function generateStaticParams() {
+  const slugs = await getAllVilleSlugs();
+  return slugs.map((ville) => ({ ville }));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { ville } = await params;
   const operators = await getOperatorsByVille(ville);
@@ -17,8 +23,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Pompes funèbres ${villeName} — Comparer les opérateurs funéraires`,
-    description: `${operators.length} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit.`,
+    description: `${operators.length} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit sur ${SITE_NAME}.`,
     alternates: { canonical: `/pompes-funebres/${ville}` },
+    openGraph: {
+      title: `Pompes funèbres ${villeName} | ${SITE_NAME}`,
+      description: `${operators.length} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit.`,
+      url: `${SITE_URL}/pompes-funebres/${ville}`,
+      siteName: SITE_NAME,
+      type: "website",
+    },
   };
 }
 
@@ -56,14 +69,57 @@ export default async function VillePage({ params }: PageProps) {
       rating: op.rating,
     }));
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Pompes funèbres à ${villeName}`,
+    description: `Liste des pompes funèbres à ${villeName} sur ${SITE_NAME}`,
+    numberOfItems: operators.length,
+    itemListElement: operators.slice(0, 10).map((op, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "LocalBusiness",
+        name: op.google_name || op.raison_sociale || DEFAULT_OPERATOR_NAME,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: op.adresse,
+          addressLocality: op.ville,
+          postalCode: op.code_postal,
+          addressCountry: "FR",
+        },
+        ...(op.rating && {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: op.rating,
+            reviewCount: op.user_ratings_total,
+          },
+        }),
+        ...(op.lat && op.lng && {
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: op.lat,
+            longitude: op.lng,
+          },
+        }),
+      },
+    })),
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
     <div>
       <h1 className="text-3xl font-bold text-stone-900">
         Pompes funèbres à {villeName}
       </h1>
       <p className="mt-2 text-stone-600">
         {operators.length} opérateur{operators.length !== 1 ? "s" : ""} funéraire
-        {operators.length !== 1 ? "s" : ""} à {villeName} ({codePostal})
+        {operators.length !== 1 ? "s" : ""} à {villeName} ({codePostal}) — trouvés sur {SITE_NAME}
       </p>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_350px]">
@@ -86,5 +142,6 @@ export default async function VillePage({ params }: PageProps) {
         </div>
       </div>
     </div>
+    </>
   );
 }
