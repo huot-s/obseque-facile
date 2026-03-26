@@ -39,16 +39,16 @@ export default function RootLayout({
             </Link>
             <nav className="flex items-center gap-6 text-sm text-stone-600">
               <Link href="/recherche" className="hover:text-stone-900">
-                Rechercher
+                🔎 Recherche
               </Link>
               <Link href="/prix-obseques" className="hover:text-stone-900">
-                Prix
+                📊 Prix
               </Link>
               <Link href="/blog" className="hover:text-stone-900">
-                Guides
+                💡 Guides
               </Link>
               <Link href="/partenaires" className="hover:text-stone-900">
-                Partenariat
+                🏢 Partenariat
               </Link>
             </nav>
           </div>
