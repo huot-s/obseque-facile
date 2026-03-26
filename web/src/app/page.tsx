@@ -70,16 +70,17 @@ export default async function HomePage() {
       {popularCities.length > 0 && (
         <section className="w-full py-8">
           <h2 className="text-2xl font-bold text-stone-900">
-            Pompes funèbres par ville
+            Pompes funèbres dans votre ville
           </h2>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-6 grid gap-x-8 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
             {popularCities.map((city) => (
               <Link
                 key={city.ville_slug}
                 href={`/pompes-funebres/${city.ville_slug}`}
-                className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 transition-colors"
+                className="flex items-center justify-between border-b border-stone-100 py-2.5 text-sm text-stone-700 hover:text-blue-800 transition-colors group"
               >
-                {city.ville} ({city.count})
+                <span className="group-hover:translate-x-0.5 transition-transform">{city.ville}</span>
+                <span className="text-xs text-stone-400 group-hover:text-blue-600">{city.count} opérateurs</span>
               </Link>
             ))}
           </div>
