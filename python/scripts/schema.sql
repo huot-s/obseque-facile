@@ -83,6 +83,20 @@ CREATE TABLE IF NOT EXISTS devis_requests (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- Partner requests
+CREATE TABLE IF NOT EXISTS partner_requests (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    raison_sociale TEXT NOT NULL,
+    nom_contact TEXT NOT NULL,
+    email TEXT NOT NULL,
+    telephone TEXT,
+    ville TEXT,
+    code_postal TEXT,
+    message TEXT,
+    status TEXT DEFAULT 'pending',
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- RPC function for nearby operators search
 CREATE OR REPLACE FUNCTION nearby_operators(
     user_lat DOUBLE PRECISION,

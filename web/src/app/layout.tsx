@@ -47,6 +47,9 @@ export default function RootLayout({
               <Link href="/blog" className="hover:text-stone-900">
                 Guides
               </Link>
+              <Link href="/partenaires" className="hover:text-stone-900">
+                Partenariat
+              </Link>
             </nav>
           </div>
         </header>
@@ -60,6 +63,9 @@ export default function RootLayout({
                 &copy; {new Date().getFullYear()} {SITE_NAME}
               </p>
               <div className="flex gap-4 text-sm text-stone-500">
+                <Link href="/partenaires" className="hover:text-stone-700">
+                  Devenir partenaire
+                </Link>
                 <Link href="/mentions-legales" className="hover:text-stone-700">
                   Mentions légales
                 </Link>
