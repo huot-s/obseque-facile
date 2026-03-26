@@ -35,14 +35,14 @@ export default function RootLayout({
         <header className="border-b border-stone-200 bg-white">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
             <Link href="/" className="text-xl font-bold text-stone-800">
-              {SITE_NAME}
+              {SITE_NAME}<span className="text-sm">.fr</span>
             </Link>
             <nav className="flex items-center gap-6 text-sm text-stone-600">
               <Link href="/recherche" className="hover:text-stone-900">
                 Rechercher
               </Link>
               <Link href="/prix-obseques" className="hover:text-stone-900">
-                Prix des obsèques
+                Prix
               </Link>
               <Link href="/blog" className="hover:text-stone-900">
                 Guides
