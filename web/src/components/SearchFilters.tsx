@@ -78,7 +78,7 @@ export default function SearchFilters() {
               onClick={() => updateFilters({ rating: opt.value })}
               className={`rounded px-3 py-1 text-xs font-medium transition-colors ${
                 currentRating === opt.value
-                  ? "bg-stone-800 text-white"
+                  ? "bg-blue-800 text-white"
                   : "bg-stone-100 text-stone-600 hover:bg-stone-200"
               }`}
             >
@@ -110,7 +110,7 @@ export default function SearchFilters() {
             }
           }}
           placeholder="ex: 75015"
-          className="mt-1 w-32 rounded border border-stone-300 px-3 py-1.5 text-sm text-stone-900 placeholder:text-stone-400 focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+          className="mt-1 w-32 rounded border border-stone-300 px-3 py-1.5 text-sm text-stone-900 placeholder:text-stone-400 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
         />
       </div>
 
@@ -124,7 +124,7 @@ export default function SearchFilters() {
               onClick={() => toggleService(cat.slug)}
               className={`rounded px-2 py-1 text-xs transition-colors ${
                 currentServices.includes(cat.slug)
-                  ? "bg-stone-800 text-white"
+                  ? "bg-blue-800 text-white"
                   : "bg-stone-100 text-stone-600 hover:bg-stone-200"
               }`}
             >

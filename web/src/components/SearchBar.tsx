@@ -27,13 +27,13 @@ export default function SearchBar({ defaultValue = "", large = false }: SearchBa
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Ville, code postal ou nom..."
-          className={`flex-1 rounded-lg border border-stone-300 bg-white px-4 text-stone-900 placeholder:text-stone-400 focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500 ${
+          className={`flex-1 rounded-lg border border-stone-300 bg-white px-4 text-stone-900 placeholder:text-stone-400 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 ${
             large ? "py-4 text-lg" : "py-2.5 text-sm"
           }`}
         />
         <button
           type="submit"
-          className={`rounded-lg bg-stone-800 font-medium text-white hover:bg-stone-700 transition-colors shrink-0 ${
+          className={`rounded-lg bg-blue-800 font-medium text-white hover:bg-blue-700 transition-colors shrink-0 ${
             large ? "px-8 py-4 text-lg" : "px-5 py-2.5 text-sm"
           }`}
         >

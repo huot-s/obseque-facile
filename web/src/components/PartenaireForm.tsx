@@ -72,7 +72,7 @@ export default function PartenaireForm() {
             id="raison_sociale"
             name="raison_sociale"
             required
-            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <div>
@@ -84,7 +84,7 @@ export default function PartenaireForm() {
             id="nom_contact"
             name="nom_contact"
             required
-            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <div>
@@ -96,7 +96,7 @@ export default function PartenaireForm() {
             id="email"
             name="email"
             required
-            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <div>
@@ -107,7 +107,7 @@ export default function PartenaireForm() {
             type="tel"
             id="telephone"
             name="telephone"
-            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <div>
@@ -118,7 +118,7 @@ export default function PartenaireForm() {
             type="text"
             id="ville"
             name="ville"
-            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <div>
@@ -132,7 +132,7 @@ export default function PartenaireForm() {
             inputMode="numeric"
             pattern="[0-9]{5}"
             maxLength={5}
-            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+            className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
           />
         </div>
       </div>
@@ -144,7 +144,7 @@ export default function PartenaireForm() {
           id="message"
           name="message"
           rows={4}
-          className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-500"
+          className="mt-1 w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
           placeholder="Décrivez votre activité et ce que vous recherchez dans un partenariat..."
         />
       </div>
@@ -156,7 +156,7 @@ export default function PartenaireForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-md bg-stone-800 px-6 py-3 text-sm font-medium text-white hover:bg-stone-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-md bg-blue-800 px-6 py-3 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
       >
         {status === "loading" ? "Envoi en cours..." : "Envoyer ma demande de partenariat"}
       </button>

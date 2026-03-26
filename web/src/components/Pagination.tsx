@@ -49,7 +49,7 @@ export default function Pagination({
             href={`${baseUrl}${separator}page=${p}`}
             className={`rounded px-3 py-2 text-sm ${
               p === currentPage
-                ? "bg-stone-800 text-white"
+                ? "bg-blue-800 text-white"
                 : "text-stone-600 hover:bg-stone-100"
             }`}
           >

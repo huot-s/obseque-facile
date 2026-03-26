@@ -38,16 +38,16 @@ export default function RootLayout({
               {SITE_NAME}<span className="text-sm">.fr</span>
             </Link>
             <nav className="flex items-center gap-6 text-sm text-stone-600">
-              <Link href="/recherche" className="hover:text-stone-900">
+              <Link href="/recherche" className="hover:text-blue-800">
                 🔎 Recherche
               </Link>
-              <Link href="/prix-obseques" className="hover:text-stone-900">
+              <Link href="/prix-obseques" className="hover:text-blue-800">
                 📊 Prix
               </Link>
-              <Link href="/blog" className="hover:text-stone-900">
+              <Link href="/blog" className="hover:text-blue-800">
                 💡 Guides
               </Link>
-              <Link href="/partenaires" className="hover:text-stone-900">
+              <Link href="/partenaires" className="hover:text-blue-800">
                 🏢 Partenariat
               </Link>
             </nav>
@@ -63,10 +63,10 @@ export default function RootLayout({
                 &copy; {new Date().getFullYear()} {SITE_NAME}
               </p>
               <div className="flex gap-4 text-sm text-stone-500">
-                <Link href="/partenaires" className="hover:text-stone-700">
+                <Link href="/partenaires" className="hover:text-blue-800">
                   Devenir partenaire
                 </Link>
-                <Link href="/mentions-legales" className="hover:text-stone-700">
+                <Link href="/mentions-legales" className="hover:text-blue-800">
                   Mentions légales
                 </Link>
               </div>

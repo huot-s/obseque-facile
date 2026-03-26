@@ -39,7 +39,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
         &larr; Retour aux guides
       </Link>
 
-      <article className="prose prose-stone prose-lg max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h2:text-xl prose-h2:mt-10 prose-h3:text-lg prose-a:text-stone-700 prose-a:underline prose-table:text-sm">
+      <article className="prose prose-stone prose-lg max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h2:text-xl prose-h2:mt-10 prose-h3:text-lg prose-a:text-blue-800 prose-a:underline prose-table:text-sm">
         <MDXRemote source={article.content} />
       </article>
 
@@ -52,7 +52,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
         </p>
         <Link
           href="/recherche"
-          className="mt-4 inline-block rounded-md bg-stone-800 px-6 py-2.5 text-sm font-medium text-white hover:bg-stone-700 transition-colors"
+          className="mt-4 inline-block rounded-md bg-blue-800 px-6 py-2.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
         >
           Rechercher des pompes funèbres
         </Link>

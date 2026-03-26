@@ -17,7 +17,7 @@ export default function OperatorCard({ operator }: OperatorCardProps) {
         <div className="flex-1 min-w-0">
           <Link
             href={`/pompes/${operator.slug}`}
-            className="text-lg font-semibold text-stone-900 hover:text-stone-600 transition-colors"
+            className="text-lg font-semibold text-stone-900 hover:text-blue-700 transition-colors"
           >
             {displayName}
           </Link>
@@ -37,7 +37,7 @@ export default function OperatorCard({ operator }: OperatorCardProps) {
         <div className="shrink-0">
           <Link
             href={`/pompes/${operator.slug}`}
-            className="rounded-md bg-stone-800 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 transition-colors"
+            className="rounded-md bg-blue-800 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
           >
             Voir la fiche
           </Link>

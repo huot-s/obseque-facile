@@ -77,7 +77,7 @@ export default async function HomePage() {
               <Link
                 key={city.ville_slug}
                 href={`/pompes-funebres/${city.ville_slug}`}
-                className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 hover:bg-stone-100 transition-colors"
+                className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 transition-colors"
               >
                 {city.ville} ({city.count})
               </Link>
