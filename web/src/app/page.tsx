@@ -41,8 +41,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="w-full py-8">
-        <h2 className="text-2xl font-bold text-stone-900">
+      <section className="w-full py-18">
+        <h2 className="text-center text-3xl font-bold text-stone-900">
           Comment ça marche ?
         </h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-3">
@@ -65,11 +65,19 @@ export default async function HomePage() {
             </p>
           </div>
         </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/recherche"
+            className="inline-block rounded-lg bg-blue-800 px-8 py-3 font-medium text-white hover:bg-blue-700 transition-colors"
+          >
+            Trouver des pompes funèbres →
+          </Link>
+        </div>
       </section>
 
       {popularCities.length > 0 && (
-        <section className="w-full py-8">
-          <h2 className="text-2xl font-bold text-stone-900">
+        <section className="w-full py-18">
+          <h2 className="text-center text-3xl font-bold text-stone-900">
             Pompes funèbres dans votre ville
           </h2>
           <div className="mt-6 grid gap-x-8 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
