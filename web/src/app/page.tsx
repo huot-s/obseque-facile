@@ -31,8 +31,8 @@ export default async function HomePage() {
             <p className="mt-1 text-sm text-stone-600">Opérateurs référencés</p>
           </div>
           <div className="rounded-lg border border-stone-200 bg-white p-6 text-center">
-            <p className="text-3xl font-bold text-stone-800">8</p>
-            <p className="mt-1 text-sm text-stone-600">Catégories de services</p>
+            <p className="text-3xl font-bold text-stone-800">&lt; 5 min</p>
+            <p className="mt-1 text-sm text-stone-600">Pour comparer les offres</p>
           </div>
           <div className="rounded-lg border border-stone-200 bg-white p-6 text-center">
             <p className="text-3xl font-bold text-stone-800">100%</p>
