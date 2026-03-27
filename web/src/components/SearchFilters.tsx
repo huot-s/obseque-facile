@@ -78,7 +78,7 @@ export default function SearchFilters() {
               onClick={() => updateFilters({ rating: opt.value })}
               className={`rounded px-3 py-1 text-xs font-medium transition-colors ${
                 currentRating === opt.value
-                  ? "bg-blue-800 text-white"
+                  ? "bg-blue-900 text-white"
                   : "bg-stone-100 text-stone-600 hover:bg-stone-200"
               }`}
             >
@@ -124,7 +124,7 @@ export default function SearchFilters() {
               onClick={() => toggleService(cat.slug)}
               className={`rounded px-2 py-1 text-xs transition-colors ${
                 currentServices.includes(cat.slug)
-                  ? "bg-blue-800 text-white"
+                  ? "bg-blue-900 text-white"
                   : "bg-stone-100 text-stone-600 hover:bg-stone-200"
               }`}
             >

@@ -33,7 +33,7 @@ export default function SearchBar({ defaultValue = "", large = false }: SearchBa
         />
         <button
           type="submit"
-          className={`rounded-lg bg-blue-800 font-medium text-white hover:bg-blue-700 transition-colors shrink-0 ${
+          className={`rounded-lg bg-blue-900 font-medium text-white hover:bg-blue-800 transition-colors shrink-0 ${
             large ? "px-8 py-4 text-lg" : "px-5 py-2.5 text-sm"
           }`}
         >

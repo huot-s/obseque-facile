@@ -52,7 +52,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
         </p>
         <Link
           href="/recherche"
-          className="mt-4 inline-block rounded-md bg-blue-800 px-6 py-2.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+          className="mt-4 inline-block rounded-md bg-blue-900 px-6 py-2.5 text-sm font-medium text-white hover:bg-blue-800 transition-colors"
         >
           Rechercher des pompes funèbres
         </Link>

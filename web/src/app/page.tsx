@@ -68,7 +68,7 @@ export default async function HomePage() {
         <div className="mt-8 text-center">
           <Link
             href="/recherche"
-            className="inline-block rounded-lg bg-blue-800 px-8 py-3 font-medium text-white hover:bg-blue-700 transition-colors"
+            className="inline-block rounded-lg bg-blue-900 px-8 py-3 font-medium text-white hover:bg-blue-800 transition-colors"
           >
             Trouver des pompes funèbres →
           </Link>
