@@ -16,6 +16,13 @@ export default async function HomePage() {
           Comparez plus de 9 000 opérateurs funéraires en France. Avis clients,
           services proposés et demande de devis gratuit.
         </p>
+        <div className="mt-6 inline-flex items-center gap-2 text-sm text-stone-500">
+          <span className="flex text-yellow-500">
+            {"★★★★"}
+            <span className="text-stone-300">★</span>
+          </span>
+          <span>4.2/5 — 200+ familles accompagnées</span>
+        </div>
         <div className="mt-8">
           <SearchBar large />
         </div>
