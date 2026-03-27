@@ -129,7 +129,7 @@ export default async function VillePage({ params }: PageProps) {
           ))}
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 lg:sticky lg:top-4 lg:self-start">
           {mapOperators.length > 0 && (
             <Map operators={mapOperators} className="h-[400px]" />
           )}
