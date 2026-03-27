@@ -184,7 +184,12 @@ export async function getOperatorBySlug(slug: string): Promise<Operator | null> 
   return operator;
 }
 
-export async function getOperatorsByVille(villeSlug: string): Promise<Operator[]> {
+export async function getOperatorsByVille(villeSlug: string): Promise<{ operators: Operator[]; total: number }> {
+  const { count } = await supabase
+    .from("operators")
+    .select("id", { count: "exact", head: true })
+    .eq("ville_slug", villeSlug);
+
   const { data } = await supabase
     .from("operators")
     .select(OPERATOR_SELECT)
@@ -195,7 +200,7 @@ export async function getOperatorsByVille(villeSlug: string): Promise<Operator[]
     .limit(50);
 
   const operators = (data ?? []).map((op) => ({ ...op, services: [] as string[] }));
-  return attachServices(operators);
+  return { operators: await attachServices(operators), total: count ?? 0 };
 }
 
 export async function getOperatorsByDepartement(

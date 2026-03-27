@@ -18,16 +18,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { ville } = await params;
-  const operators = await getOperatorsByVille(ville);
+  const { operators, total } = await getOperatorsByVille(ville);
   const villeName = operators[0]?.ville ?? ville;
 
   return {
     title: `Pompes funèbres ${villeName} — Comparer les opérateurs funéraires`,
-    description: `${operators.length} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit sur ${SITE_NAME}.`,
+    description: `${total} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit sur ${SITE_NAME}.`,
     alternates: { canonical: `/pompes-funebres/${ville}` },
     openGraph: {
       title: `Pompes funèbres ${villeName} | ${SITE_NAME}`,
-      description: `${operators.length} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit.`,
+      description: `${total} pompes funèbres à ${villeName}. Comparez les avis clients, services et demandez un devis gratuit.`,
       url: `${SITE_URL}/pompes-funebres/${ville}`,
       siteName: SITE_NAME,
       type: "website",
@@ -39,7 +39,7 @@ export const revalidate = 3600;
 
 export default async function VillePage({ params }: PageProps) {
   const { ville } = await params;
-  const operators = await getOperatorsByVille(ville);
+  const { operators, total } = await getOperatorsByVille(ville);
 
   if (operators.length === 0) {
     return (
@@ -74,7 +74,7 @@ export default async function VillePage({ params }: PageProps) {
     "@type": "ItemList",
     name: `Pompes funèbres à ${villeName}`,
     description: `Liste des pompes funèbres à ${villeName} sur ${SITE_NAME}`,
-    numberOfItems: operators.length,
+    numberOfItems: total,
     itemListElement: operators.slice(0, 10).map((op, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -118,8 +118,8 @@ export default async function VillePage({ params }: PageProps) {
         Pompes funèbres à {villeName}
       </h1>
       <p className="mt-2 text-stone-600">
-        {operators.length} opérateur{operators.length !== 1 ? "s" : ""} funéraire
-        {operators.length !== 1 ? "s" : ""} à {villeName} ({codePostal}) — trouvés sur {SITE_NAME}
+        {total} opérateur{total !== 1 ? "s" : ""} funéraire
+        {total !== 1 ? "s" : ""} à {villeName} ({codePostal}) — trouvés sur {SITE_NAME}
       </p>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_350px]">
